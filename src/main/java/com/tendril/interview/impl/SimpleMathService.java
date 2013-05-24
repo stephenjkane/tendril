@@ -14,7 +14,7 @@ import java.util.List;
 public class SimpleMathService implements MathService {
 
     private double mean;
-    private int medium;
+    private double medium;
     private int lowest;
     private int highest;
     private double stddev;
@@ -35,13 +35,16 @@ public class SimpleMathService implements MathService {
         if(data.size() == 0){
             throw new IllegalArgumentException("computing the values on a zero length array is illogical");
         }
+        // Need to sort to get range.
         Collections.sort(data);
         lowest = data.get(0);
         highest = data.get(data.size() - 1);
         if(data.size() % 2 != 0) {
             medium = data.get(data.size() / 2);
         } else {
-            medium = (data.get(data.size() / 2) + data.get(data.size() / 2 + 1)) / 2;
+            int left = (data.size() / 2) - 1;
+            int right = (data.size() / 2);
+            medium = (data.get(left) + data.get(right)) / (double) 2;
         }
         int sum = 0;
         for(int element : data) {
@@ -68,7 +71,7 @@ public class SimpleMathService implements MathService {
      * Return the medium value
      * @return
      */
-    public int medium() {
+    public double medium() {
         return medium;
     }
 

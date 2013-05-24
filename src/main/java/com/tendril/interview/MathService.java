@@ -17,7 +17,7 @@ public interface MathService {
     /**
      * Returns the medium value of the data
      */
-    public int medium();
+    public double medium();
 
     /**
      * Returns the lowest value range
