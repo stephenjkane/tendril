@@ -12,8 +12,8 @@ public class Main {
             System.exit(-1);
         }
         MathService service = new SimpleMathService();
-        SingleLineReader reader = new SingleLineReader(args[0]);
-        List<Integer> list = reader.read();
+        SingleLineReader reader = new SingleLineReader();
+        List<Integer> list = reader.read(args[0]);
         service.calculate(list);
         System.out.printf("The mean: %g%n", service.mean());
         System.out.printf("The medium: %d%n", service.medium());

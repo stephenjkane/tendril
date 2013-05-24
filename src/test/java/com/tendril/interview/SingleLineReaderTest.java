@@ -14,7 +14,7 @@ public class SingleLineReaderTest {
     public void testRead() {
         ArrayList<Integer> list = new ArrayList<Integer>();
         list.addAll(Arrays.asList(7, 2, 5, 4, 9, 4, 4, 5));
-        SingleLineReader reader = new SingleLineReader("src/test/resources/sample.txt");
-        assertEquals(list, reader.read());
+        SingleLineReader reader = new SingleLineReader();
+        assertEquals(list, reader.read("src/test/resources/sample.txt"));
     }
 }
