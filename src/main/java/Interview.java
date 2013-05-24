@@ -27,18 +27,24 @@ public class Interview {
         }
     }
 
+    /**
+     * This is the main function being run.
+     * @param args
+     */
     public void run(String args[]){
         if(args.length == 0){
             throw new IllegalArgumentException("Must include the name of the file to read in.");
         }
         List<Integer> list = read(args[0]);
         calculate(list);
-        System.out.printf("The mean: %g%n", mean());
-        System.out.printf("The medium: %g%n", medium());
-        System.out.printf("The range: (lowest) - (highest) %d - %d%n", lowest(), highest());
-        System.out.printf("The standard deviation: %g%n", stddev());
+        write();
     }
 
+    /**
+     * This function reads in the values from the file system.
+     * @param path the path to the file to read in.
+     * @return a list of integers.
+     */
     public List<Integer> read(String path) {
         File file = new File(path);
         if(!file.exists()){
@@ -50,6 +56,10 @@ public class Interview {
             String line = reader.readLine();
             List<Integer> integerList = new ArrayList<Integer>();
             while(line != null){
+                if(line.trim().isEmpty()){
+                    ++lineno;
+                    continue;
+                }
                 integerList.add(Integer.valueOf(line.trim()));
                 line = reader.readLine();
                 ++lineno;
@@ -65,7 +75,7 @@ public class Interview {
     }
 
     /**
-     * This method takes in a List of Integers.
+     * This method takes in a List of Integers and calculates the values.
      * @param data the list of elements.  We pass in an integer list because
      *             it makes testing easier.
      */
@@ -98,6 +108,16 @@ public class Interview {
         }
         double variance = standard_devation_sum / (double)data.size();
         stddev = Math.sqrt(variance);
+    }
+
+    /**
+     * This function writes out the values.
+     */
+    private void write() {
+        System.out.printf("The mean: %g%n", mean());
+        System.out.printf("The medium: %g%n", medium());
+        System.out.printf("The range: (lowest) - (highest) %d - %d%n", lowest(), highest());
+        System.out.printf("The standard deviation: %g%n", stddev());
     }
 
     /**
