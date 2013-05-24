@@ -3,6 +3,10 @@ package com.tendril.interview.impl;
 import com.tendril.interview.MathService;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class SimpleMathServiceTest {
@@ -17,8 +21,8 @@ public class SimpleMathServiceTest {
 
     @Test
     public void testSample() {
-        data = new int[] {7, 2, 5, 4, 9, 4, 4, 5};
-        service.calculateWithArrays(data);
+        List data = Arrays.asList(7, 2, 5, 4, 9, 4, 4, 5);
+        service.calculate(data);
 
         assertEquals(5.0, service.mean(), .0000001);
         assertEquals(5, service.medium());
@@ -29,8 +33,8 @@ public class SimpleMathServiceTest {
 
     @Test
     public void testSmall() {
-        data = new int[] {1, 2, 3};
-        service.calculateWithArrays(data);
+        List data = Arrays.asList(1, 2, 3);
+        service.calculate(data);
 
         assertEquals("mean is not correct", 2.0, service.mean(), .00001);
         assertEquals("medium is not correct", 2, service.medium());

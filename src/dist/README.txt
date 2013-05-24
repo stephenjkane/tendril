@@ -4,7 +4,7 @@ Assumptions:
 This application does not need to be performance tuned.  I use a List of Integers
 internally store the data.  That is just a convenience so I do not have to manage
 arrays while computing the information.  If performance is an issue, I could easily
-convert
+convert to an array while computing the values.
 
 Design Choices:
 I split this application up into three parts.
@@ -29,4 +29,4 @@ Part B:
  calculate them might change.
 
 Part C:
-
+ The glue code just the code that links the two portions together.
