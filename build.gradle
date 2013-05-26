@@ -7,18 +7,8 @@ repositories {
     mavenCentral()
 }
 
-jar {
-    from sourceSets.main.allJava
-}
-
 dependencies {
     // compile 'org.apache.commons:commons-lang3:3.1'
     testCompile 'junit:junit:4.+'
 }
 
-
-task(runSimple, dependsOn: 'classes', type: JavaExec) {
-    main = 'Interview'
-    classpath = sourceSets.main.runtimeClasspath
-    args 'sample.txt'
-}
